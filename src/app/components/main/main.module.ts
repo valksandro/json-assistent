@@ -11,6 +11,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {TableModule} from 'primeng/table';
 import {DropdownModule} from 'primeng/dropdown';
 import { HttpClientModule } from '@angular/common/http';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     DropdownModule,
     HttpClientModule,
     SearchJsonComponentModule,
-    FieldPropertiesModule
+    FieldPropertiesModule,
+    PipesModule
   ],
   exports: [
     MainComponent

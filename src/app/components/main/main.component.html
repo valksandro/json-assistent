@@ -1,6 +1,8 @@
 <div class="container">
-    <app-search-json (onSetfields)="onSetFields($event)" (onFileUpload)="onFileUpload($event)" [(fields)]="fields"></app-search-json>
-    
+    <app-search-json (onSetfields)="onSetFields($event)" (onFileUpload)="onFileUpload($event)" [(fields)]="fields">
+    </app-search-json>
+
+
     <p-table [columns]="cols" [value]="fields" [scrollable]="true" [rows]="5" selectionMode="single"
         [(selection)]="selectedField" (onRowSelect)="onRowSelect($event)" [paginator]="true">
         <ng-template pTemplate="caption">
@@ -34,7 +36,61 @@
         </div>
     </div>
 
-    <a *ngIf="downloadJsonHref" class="btn btn-success"id="download" title="Download JSON" [href]="downloadJsonHref" download="download.json">Download</a>
+    <a *ngIf="downloadJsonHref" class="btn btn-success" id="download" title="Download JSON" [href]="downloadJsonHref"
+        download="download.json">Download</a>
 
+
+    <div class="row">
+        <div class="table-responsive" *ngIf="file" style="max-height: 300px; margin-bottom: 50px">
+            <table class="table table-bordered table-striped table-sm mt-4 ">
+                <thead>
+                    <tr>
+                        <th style="min-width: 120px;">Nome</th>
+                        <th style="min-width: 120px;">Tipo</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="file">
+                    <tr *ngFor="let field of file.fields" style="cursor: pointer;" (click)="selectField(field)"
+                        [class.selected-row]="fieldSelected == field">
+                        <td>{{field.fieldName}}</td>
+                        <td>{{field['type']}}</td>
+                        <td></td>
+                    </tr>
+                    <!--                 <tr *ngIf="products.length == 0">
+                        <td colspan="11" align="center">
+                            {{attendanceService.translate('nothing_found')}}
+                        </td>
+                    </tr>  -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="table-responsive" *ngIf="fieldSelected" style="max-height: 300px; margin-bottom: 50px">
+            <table class="table table-bordered table-striped table-sm mt-4 ">
+                <thead>
+                    <tr>
+                        <th style="min-width: 120px;">Propriedade</th>
+                        <th style="min-width: 120px;">Valor</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let property of fieldSelected | keyvalue: originalOrder" style="cursor: pointer;">
+                        <td>{{property.key}}</td>
+                        <td>{{property.value}}</td>
+                        <td></td>
+                    </tr>
+                    <!--                 <tr *ngIf="products.length == 0">
+                    <td colspan="11" align="center">
+                        {{attendanceService.translate('nothing_found')}}
+                    </td>
+                </tr>  -->
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
-

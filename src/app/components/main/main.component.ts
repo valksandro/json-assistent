@@ -3,6 +3,7 @@ import { SearchJsonComponent } from '../search-json/search-json.component';
 import { Component, OnInit, Input } from '@angular/core';
 import { from } from 'rxjs';
 import { DomSanitizer } from '@angular/platform-browser';
+import { KeyValue } from '@angular/common';
 
 
 
@@ -12,7 +13,9 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-
+  originalOrder = (a: KeyValue<number,string>, b: KeyValue<number,string>): number => {
+    return 0;
+  }
   
   displayDialog: boolean;
 
@@ -27,6 +30,8 @@ export class MainComponent implements OnInit {
 
   cols: any[];
   downloadJsonHref: any;
+  file: any;
+  fieldSelected: any;
 
   constructor(private sanitizer: DomSanitizer) { }
 
@@ -83,9 +88,14 @@ export class MainComponent implements OnInit {
   }
 
   onFileUpload(file) {
+    this.file = file;
     var theJSON = JSON.stringify(file);
     var uri = this.sanitizer.bypassSecurityTrustUrl("data:text/json;charset=UTF-8," + encodeURIComponent(theJSON));
     this.downloadJsonHref = uri;
+  }
+
+  selectField(field) {
+    this.fieldSelected = field;
   }
 
 }

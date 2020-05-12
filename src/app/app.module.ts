@@ -7,12 +7,14 @@ import { FormsModule } from "@angular/forms";
 import { FieldPropertiesModule } from './components/field-properties/field-properties.module';
 import { MainModule } from './components/main/main.module';
 import { SearchJsonComponentModule } from './components/search-json/search-json.module';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
+    CommonModule,
     FormsModule,
     MainModule,
     BrowserModule,

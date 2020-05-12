@@ -106,9 +106,9 @@ export class MainComponent implements OnInit {
     this.fieldSelected[property.key] = event.target.value;
   }
 
-  addField() {
+  addField(index: number) {
     const field = new TextField();
     field.fieldName = "teste";
-    this.file.fields.splice(1, 0, field);
+    this.file.fields.splice(index, 0, field);
   }
 }

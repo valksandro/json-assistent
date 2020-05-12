@@ -17,6 +17,7 @@ export class FieldPropertiesComponent implements OnInit {
     {label: 'false', value: false}
   ];
   fields: {name:string, value:any}[] = [];
+  
   @Input() 
   set selectedField(field:Field){
     this.fields = [];

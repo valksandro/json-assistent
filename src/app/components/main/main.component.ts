@@ -5,6 +5,7 @@ import { from } from 'rxjs';
 import { DomSanitizer } from '@angular/platform-browser';
 import { KeyValue } from '@angular/common';
 import { TextField } from 'src/app/domain/TextField';
+import { FieldService } from './service/field.service';
 
 
 
@@ -34,7 +35,7 @@ export class MainComponent implements OnInit {
   file: any;
   fieldSelected: any;
 
-  constructor(private sanitizer: DomSanitizer) { }
+  constructor(private sanitizer: DomSanitizer, private fieldService: FieldService) { }
 
   ngOnInit() {
       this.cols = [
@@ -107,7 +108,7 @@ export class MainComponent implements OnInit {
   }
 
   addField(index: number, fieldData) {
-    const field = new TextField();
+    const field = this.fieldService.createField(fieldData.type);
     field.fieldName = fieldData.name;
     field.type = fieldData.type;
     this.file.fields.splice(index, 0, field);

@@ -1,9 +1,28 @@
-<modal #modalDelete>
+<modal #modalNewField>
     <modal-content>
-      Qualquer Coisa
+        <form [formGroup]="form" (submit)="onConfirm()" #ngForm="ngForm">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group">
+                        <label class="form-col-form-label" for="name">Nome do Campo</label>
+                        <input type="text" formControlName="name" class="form-control" id="name">
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group">
+                        <label for="type">Tipo do Campo</label>
+                        <select id="type" formControlName="type" class="form-control">
+                            <option [ngValue]="null">Selecione</option>
+                            <option [ngValue]="'text'">Text</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
     </modal-content>
     <modal-footer>
-        <button type="button" class="btn btn-danger" (click)="onDelete()">Sim</button>
-        <button type="button" class="btn btn-secondary" (click)="modalDelete.close()">Não</button>
+        <button type="button" class="btn btn-danger" (click)="onConfirm()" (click)="modalNewField.close()">Sim</button>
+        <button type="button" class="btn btn-secondary" (click)="modalNewField.close()">Não</button>
     </modal-footer>
-  </modal>
+</modal>

@@ -20,7 +20,7 @@
                         <td>{{field.fieldName}}</td>
                         <td>{{field['type']}}</td>
                         <td></td>
-                        <modal-new-field #modalNewField ></modal-new-field>
+                        <modal-new-field #modalNewField (confirm)="addField(i, $event)"></modal-new-field>
                     </tr>
                     <tr *ngIf="file.fields.length == 0">
                         <td colspan="3" align="center">
@@ -45,7 +45,11 @@
                 <tbody>
                     <tr *ngFor="let property of fieldSelected | keyvalue: originalOrder" style="cursor: pointer;">
                         <td>{{property.key}}</td>
-                        <td><input type="text" [value]="property.value" (change)="changeValue(property, $event)"></td>
+                        <td><input type="text" 
+                            [value]="property.value" 
+                            (change)="changeValue(property, $event)"
+                            [attr.disabled]="property.key == 'type' ? true : null"
+                            ></td>
                     </tr>
                 </tbody>
             </table>

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 import { Modal } from 'src/app/ar-modal/components';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'modal-new-field',
@@ -8,20 +9,30 @@ import { Modal } from 'src/app/ar-modal/components';
 })
 export class ModalNewFieldComponent implements OnInit {
 
-  @ViewChild('modalDelete') modalDelete:Modal
-
+  form: FormGroup;
+  @ViewChild('modalNewField') modalNewField:Modal
   @Output('confirm') confirm: EventEmitter<any> = new EventEmitter();
 
-  constructor(){ }
+  constructor(private formBuilder: FormBuilder,
+    ) { 
+      this.form = this.formBuilder.group({
+        name: [null, Validators.required],
+        type: [null, Validators.required],
+      });
+    }
 
   ngOnInit(): void {
   }
   
   open(): void{
-    this.modalDelete.open();
+    this.modalNewField.open();
   }
 
-  onDelete(){
-    this.confirm.emit();
+  onConfirm(){
+    this.confirm.emit(this.form.value);
   }
 }
+
+
+
+

@@ -2,6 +2,7 @@ import { Field } from '../../domain/field';
 import { SearchJsonComponent } from '../search-json/search-json.component';
 import { Component, OnInit, Input } from '@angular/core';
 import { from } from 'rxjs';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 
@@ -25,14 +26,26 @@ export class MainComponent implements OnInit {
   fields: Field[] = [];
 
   cols: any[];
+  downloadJsonHref: any;
 
-  constructor() { }
+  constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
       this.cols = [
           { field: 'name', header: 'Name' },
           { field: 'type', header: 'Type' }
       ];
+
+      this.writeFile();
+  }
+
+  writeFile() {
+    let obj = {
+      firstName: "steven",
+      lasName: "Hancock",
+      score: 80
+    }
+
   }
 
   onSetFields(fields: Field[]){
@@ -67,6 +80,12 @@ export class MainComponent implements OnInit {
         field[prop] = c[prop];
       }
       return field;
+  }
+
+  onFileUpload(file) {
+    var theJSON = JSON.stringify(file);
+    var uri = this.sanitizer.bypassSecurityTrustUrl("data:text/json;charset=UTF-8," + encodeURIComponent(theJSON));
+    this.downloadJsonHref = uri;
   }
 
 }

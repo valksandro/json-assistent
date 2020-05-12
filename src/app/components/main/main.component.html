@@ -1,5 +1,6 @@
 <div class="container">
-    <app-search-json (onSetfields)="onSetFields($event)" [(fields)]="fields"></app-search-json>
+    <app-search-json (onSetfields)="onSetFields($event)" (onFileUpload)="onFileUpload($event)" [(fields)]="fields"></app-search-json>
+    
     <p-table [columns]="cols" [value]="fields" [scrollable]="true" [rows]="5" selectionMode="single"
         [(selection)]="selectedField" (onRowSelect)="onRowSelect($event)" [paginator]="true">
         <ng-template pTemplate="caption">
@@ -32,4 +33,8 @@
             </app-field-properties>
         </div>
     </div>
+
+    <a *ngIf="downloadJsonHref" class="btn btn-success"id="download" title="Download JSON" [href]="downloadJsonHref" download="download.json">Download</a>
+
 </div>
+

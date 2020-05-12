@@ -10,6 +10,7 @@ import { Field } from 'src/app/domain/field';
 export class SearchJsonComponent implements OnInit {
   @Input() fields: Field[] = [];
   @Output() onSetfields = new EventEmitter();
+  @Output() onFileUpload = new EventEmitter();
   public fileName: String;
   jsonObject: Object;
   text: string;
@@ -37,9 +38,8 @@ export class SearchJsonComponent implements OnInit {
       this.jsonObject = JSON.parse(fileReader.result.toString());
       this.fields = this.jsonObject['fields'].map(field => new Field(field['fieldName'], field['type'], this.jsonObject['fields'].filter(item=>item.fieldName == field['fieldName'])));
       this.onSetfields.emit(this.fields);
+      this.onFileUpload.emit(this.jsonObject);
     }
     fileReader.readAsText(this.file);
-
-    asdf
   }
 }

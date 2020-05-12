@@ -29,7 +29,11 @@ export class ModalNewFieldComponent implements OnInit {
   }
 
   onConfirm(){
-    this.confirm.emit(this.form.value);
+    if(this.form.valid) {
+      this.confirm.emit(this.form.value);
+      this.modalNewField.close()
+    }
+      
   }
 }
 

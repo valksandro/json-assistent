@@ -15,6 +15,16 @@
                         <select id="type" formControlName="type" class="form-control">
                             <option [ngValue]="null">Selecione</option>
                             <option [ngValue]="'text'">Text</option>
+                            <option [ngValue]="'dropdown'">dropdown</option>
+                            <option [ngValue]="'dropdownwithchildren'">dropdownwithchildren</option>
+                            <option [ngValue]="'boolwithchildren'">boolwithchildren</option>
+                            <option [ngValue]="'bool'">bool</option>
+                            <option [ngValue]="'slide'">slide</option>
+                            <option [ngValue]="'number'">number</option>
+                            <option [ngValue]="'checkbox'">checkbox</option>
+                            <option [ngValue]="'checklist'">checklist</option>
+                            <option [ngValue]="'image'">image</option>
+                            <option [ngValue]="'signature'">signature</option>
                         </select>
                     </div>
                 </div>
@@ -22,7 +32,7 @@
         </form>
     </modal-content>
     <modal-footer>
-        <button type="button" class="btn btn-danger" (click)="onConfirm()" (click)="modalNewField.close()">Sim</button>
+        <button type="button" class="btn btn-danger" (click)="onConfirm()">Sim</button>
         <button type="button" class="btn btn-secondary" (click)="modalNewField.close()">Não</button>
     </modal-footer>
 </modal>

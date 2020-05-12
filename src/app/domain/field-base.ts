@@ -7,4 +7,15 @@
         type: string
         display: boolean;
         required: boolean;
+
+        constructor() {
+              this.group = null;
+              this.orderResume = null;
+              this.groupResume = null;
+              this.fieldName = null;
+              this.label = null;
+              this.type = null;
+              this.display = null;
+              this.required = null;
+        }
  }

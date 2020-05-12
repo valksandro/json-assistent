@@ -4,6 +4,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { from } from 'rxjs';
 import { DomSanitizer } from '@angular/platform-browser';
 import { KeyValue } from '@angular/common';
+import { TextField } from 'src/app/domain/TextField';
 
 
 
@@ -105,4 +106,9 @@ export class MainComponent implements OnInit {
     this.fieldSelected[property.key] = event.target.value;
   }
 
+  addField() {
+    const field = new TextField();
+    field.fieldName = "teste";
+    this.file.fields.splice(1, 0, field);
+  }
 }

@@ -47,5 +47,6 @@ export class MainComponent implements OnInit {
     field.fieldName = fieldData.name;
     field.type = fieldData.type;
     this.file.fields.splice(index, 0, field);
+    this.fieldSelected = field;
   }
 }

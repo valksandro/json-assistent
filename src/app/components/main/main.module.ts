@@ -12,6 +12,7 @@ import {TableModule} from 'primeng/table';
 import {DropdownModule} from 'primeng/dropdown';
 import { HttpClientModule } from '@angular/common/http';
 import { PipesModule } from 'src/app/pipes/pipes.module';
+import { CustomFormUtilsModule } from 'src/app/custom-form-utils/custom-form-utils.module';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
     HttpClientModule,
     SearchJsonComponentModule,
     FieldPropertiesModule,
-    PipesModule
+    PipesModule,
+    CustomFormUtilsModule
   ],
   exports: [
     MainComponent

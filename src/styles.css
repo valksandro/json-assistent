@@ -3,3 +3,7 @@
   font-size: larger;
   color: #1a2129;
 }
+
+.modal-dialog {
+  margin-top: 200px !important;
+}

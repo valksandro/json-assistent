@@ -15,11 +15,12 @@
                 <tbody *ngIf="file">
                     <tr *ngFor="let field of file.fields; let i = index" style="cursor: pointer;" 
                     (click)="selectField(field)"
-                    (dblclick)="addField(i)"
+                    (dblclick)="modalNewField.open()"
                         [class.selected-row]="fieldSelected == field">
                         <td>{{field.fieldName}}</td>
                         <td>{{field['type']}}</td>
                         <td></td>
+                        <modal-new-field #modalNewField ></modal-new-field>
                     </tr>
                     <tr *ngIf="file.fields.length == 0">
                         <td colspan="3" align="center">

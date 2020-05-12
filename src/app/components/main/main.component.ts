@@ -87,15 +87,22 @@ export class MainComponent implements OnInit {
       return field;
   }
 
-  onFileUpload(file) {
-    this.file = file;
-    var theJSON = JSON.stringify(file);
+  generateJson() {
+    var theJSON = JSON.stringify(this.file);
     var uri = this.sanitizer.bypassSecurityTrustUrl("data:text/json;charset=UTF-8," + encodeURIComponent(theJSON));
     this.downloadJsonHref = uri;
   }
 
+  onFileUpload(file) {
+    this.file = file;
+  }
+
   selectField(field) {
     this.fieldSelected = field;
+  }
+
+  changeValue(property, event) {
+    this.fieldSelected[property.key] = event.target.value;
   }
 
 }

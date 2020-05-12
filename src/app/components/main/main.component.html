@@ -36,8 +36,7 @@
         </div>
     </div>
 
-    <a *ngIf="downloadJsonHref" class="btn btn-success" id="download" title="Download JSON" [href]="downloadJsonHref"
-        download="download.json">Download</a>
+    
 
 
     <div class="row">
@@ -75,22 +74,18 @@
                     <tr>
                         <th style="min-width: 120px;">Propriedade</th>
                         <th style="min-width: 120px;">Valor</th>
-                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let property of fieldSelected | keyvalue: originalOrder" style="cursor: pointer;">
                         <td>{{property.key}}</td>
-                        <td>{{property.value}}</td>
-                        <td></td>
+                        <td><input type="text" [value]="property.value" (change)="changeValue(property, $event)"></td>
                     </tr>
-                    <!--                 <tr *ngIf="products.length == 0">
-                    <td colspan="11" align="center">
-                        {{attendanceService.translate('nothing_found')}}
-                    </td>
-                </tr>  -->
                 </tbody>
             </table>
         </div>
     </div>
+    <a class="btn btn-success" (click)="generateJson()" >Salvar</a>
+    <a *ngIf="downloadJsonHref" class="btn btn-success" id="download" title="Download JSON" [href]="downloadJsonHref"
+        download="download.json">Download</a>
 </div>

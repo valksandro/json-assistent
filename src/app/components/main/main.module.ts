@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 import { CustomFormUtilsModule } from 'src/app/custom-form-utils/custom-form-utils.module';
 import { MainComponent } from './components/main/main.component';
+import { DropdownItemsComponent } from './components/dropdown-items/dropdown-items.component';
+import { FieldPropertiesComponent } from './components/field-properties/field-properties.component';
 
 @NgModule({
   imports: [
@@ -32,6 +34,6 @@ import { MainComponent } from './components/main/main.component';
   exports: [
     MainComponent
   ],
-  declarations: [MainComponent]
+  declarations: [MainComponent, DropdownItemsComponent, FieldPropertiesComponent]
 })
 export class MainModule {}

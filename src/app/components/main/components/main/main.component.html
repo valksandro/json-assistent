@@ -33,44 +33,12 @@
 
 
     <div class="row"  *ngIf="fieldSelected">
-        <div class="col-6" style="padding: 0;">
-            <div class="table-responsive" style="max-height: 300px; margin-bottom: 50px">
-                <table class="table table-bordered table-striped table-sm mt-4 ">
-                    <thead>
-                        <tr>
-                            <th style="min-width: 120px;">Propriedade</th>
-                            <th style="min-width: 120px;">Valor</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let property of fieldSelected | keyvalue: originalOrder" style="cursor: pointer;"
-                        (click)="selectProperty(property)" [class.selected-row]="propertySelected && propertySelected == property">
-                            <td>{{property.key}}</td>
-                            <td *ngIf="property.key != 'items'"><input type="text" [value]="property.value" (change)="changeValue(property, $event)" [attr.disabled]="property.key == 'type' ? true : null" ></td>
-                            <td *ngIf="property.key == 'items'" (click)="showOptions()">items</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div class="col-6" style="padding: 5px;">
+            <field-properties [field]="fieldSelected" (selectProperty)="selectProperty($event)"></field-properties>
         </div>
-
-        <div class="col-6" style="padding: 0;" *ngIf="propertySelected && propertySelected.key == 'items'">
-            <div class="table-responsive" style="max-height: 300px; margin-bottom: 50px">
-                <table class="table table-bordered table-striped table-sm mt-4 ">
-                    <thead>
-                        <tr>
-                            <th style="min-width: 120px;">label</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let item of fieldSelected.items" style="cursor: pointer;">
-                            <td>{{item}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div class="col-6" style="padding: 5px;" *ngIf="propertySelected && propertySelected.key == 'items'">
+            <dropdown-items [items]="fieldSelected.items"></dropdown-items>
         </div>
-
     </div>
     <div class="row" *ngIf="fieldSelected">
         <a class="btn btn-success" (click)="generateJson()" >Salvar</a>

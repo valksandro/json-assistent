@@ -1,0 +1,18 @@
+    <div class="table-responsive" style="max-height: 300px; margin-bottom: 50px">
+        <table class="table table-bordered table-striped table-sm mt-4 ">
+            <thead>
+                <tr>
+                    <th style="min-width: 120px;">Propriedade</th>
+                    <th style="min-width: 120px;">Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let property of field | keyvalue: originalOrder" style="cursor: pointer;"
+                (click)="onSelectProperty(property)" [class.selected-row]="propertySelected && propertySelected == property">
+                    <td>{{property.key}}</td>
+                    <td *ngIf="property.key != 'items'"><input type="text" [value]="property.value" (change)="changeValue(property, $event)" [attr.disabled]="property.key == 'type' ? true : null" ></td>
+                    <td *ngIf="property.key == 'items'">items</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

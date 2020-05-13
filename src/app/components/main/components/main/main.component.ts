@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { KeyValue } from '@angular/common';
-import { FieldService } from './service/field.service';
+import { FieldService } from '../../service/field.service';
 
 
 

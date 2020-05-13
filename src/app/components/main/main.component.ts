@@ -18,6 +18,9 @@ export class MainComponent implements OnInit {
   downloadJsonHref: any;
   file: any;
   fieldSelected: any;
+  showOptionsField: boolean = false;
+  dropdownItens = [];
+  propertySelected: any;
 
   constructor(private sanitizer: DomSanitizer, private fieldService: FieldService) { }
 
@@ -38,6 +41,10 @@ export class MainComponent implements OnInit {
     this.fieldSelected = field;
   }
 
+  selectProperty(property) {
+    this.propertySelected = property;
+  }
+
   changeValue(property, event) {
     this.fieldSelected[property.key] = event.target.value;
   }
@@ -48,5 +55,9 @@ export class MainComponent implements OnInit {
     field.type = fieldData.type;
     this.file.fields.splice(index, 0, field);
     this.fieldSelected = field;
+  }
+
+  showOptions() {
+    this.showOptionsField = true;
   }
 }

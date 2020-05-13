@@ -12,3 +12,8 @@
 .btn-success {
   color: white !important;
 }
+
+.selected-row {
+  background-color: #007ad9 !important;
+  color: white;
+}

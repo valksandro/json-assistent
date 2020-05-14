@@ -60,4 +60,8 @@ export class ModalChildrenComponent implements OnInit {
     this.child = this.form.value;
     this.modalChildren.close();
   }
+
+  public setChild(child) {
+    this.child = child;
+  }
 }

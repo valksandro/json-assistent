@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { TextField } from 'src/app/domain/TextField';
+import { Modal } from 'src/app/ar-modal/components';
 
 @Component({
   selector: 'children',
@@ -8,6 +10,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ChildrenComponent implements OnInit {
 
   @Input("children") children = [];
+  @ViewChild('modalChildren') modalChildren:Modal
   constructor() { }
 
   ngOnInit(): void {
@@ -17,5 +20,10 @@ export class ChildrenComponent implements OnInit {
     const newValue = event.target.value;
     const index = this.children.indexOf(child);
     this.children[index] = newValue;
+  }
+
+  addChild() {
+    const child = new TextField();
+    this.children.push(child);
   }
 }

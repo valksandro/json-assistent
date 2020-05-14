@@ -43,7 +43,7 @@
             <triggers [triggers]="fieldSelected.triggers"></triggers>
         </div>
         <div class="col-6" style="padding: 5px;" *ngIf="propertySelected && propertySelected.key == 'children'">
-            <children></children>
+            <children [children]="fieldSelected.children"></children>
         </div>
     </div>
     <div class="row" *ngIf="fieldSelected">

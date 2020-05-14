@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'children',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChildrenComponent implements OnInit {
 
+  @Input("children") children = [];
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  changeChild(child, event) {
+    const newValue = event.target.value;
+    const index = this.children.indexOf(child);
+    this.children[index] = newValue;
+  }
 }

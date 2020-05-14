@@ -7,8 +7,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let child of children" style="cursor: pointer;" (dblclick)="modalChildren.open()">
-                    <td><input type="text" [value]="child.fieldName" (change)="changeChild(child, $event)"></td>
+                <tr *ngFor="let child of children" style="cursor: pointer;" (click)="modalChildren.open()">
+                    <td>
+                        <a (click)="modalChildren.open()" class="action-link">
+                            <i class="fa fa-pencil fa" style="margin-right: 5px;"></i>
+                        </a>
+                        {{child.fieldName}} 
+                    </td>
                     <modal-children #modalChildren [child]="child"></modal-children>
                 </tr>
             </tbody>

@@ -16,6 +16,7 @@ import { MainComponent } from './components/main/main.component';
 import { DropdownItemsComponent } from './components/dropdown-items/dropdown-items.component';
 import { FieldPropertiesComponent } from './components/field-properties/field-properties.component';
 import { TriggersComponent } from './components/triggers/triggers.component';
+import { ChildrenComponent } from './components/children/children.component';
 
 @NgModule({
   imports: [
@@ -35,6 +36,6 @@ import { TriggersComponent } from './components/triggers/triggers.component';
   exports: [
     MainComponent
   ],
-  declarations: [MainComponent, DropdownItemsComponent, FieldPropertiesComponent, TriggersComponent]
+  declarations: [MainComponent, DropdownItemsComponent, FieldPropertiesComponent, TriggersComponent, ChildrenComponent]
 })
 export class MainModule {}

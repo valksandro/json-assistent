@@ -42,6 +42,9 @@
         <div class="col-6" style="padding: 5px;" *ngIf="propertySelected && propertySelected.key == 'triggers'">
             <triggers [triggers]="fieldSelected.triggers"></triggers>
         </div>
+        <div class="col-6" style="padding: 5px;" *ngIf="propertySelected && propertySelected.key == 'children'">
+            <children></children>
+        </div>
     </div>
     <div class="row" *ngIf="fieldSelected">
         <a class="btn btn-success" (click)="generateJson()" >Salvar</a>

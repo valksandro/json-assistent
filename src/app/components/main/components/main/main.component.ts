@@ -39,6 +39,7 @@ export class MainComponent implements OnInit {
 
   selectField(field) {
     this.fieldSelected = field;
+    this.propertySelected = null;
   }
 
   selectProperty(property) {

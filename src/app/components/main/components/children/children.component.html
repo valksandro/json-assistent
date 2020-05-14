@@ -8,7 +8,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let child of children" style="cursor: pointer;">
-                    <td><input type="text" [value]="child" (change)="changeChild(child, $event)"></td>
+                    <td><input type="text" [value]="child.fieldName" (change)="changeChild(child, $event)"></td>
                 </tr>
             </tbody>
         </table>

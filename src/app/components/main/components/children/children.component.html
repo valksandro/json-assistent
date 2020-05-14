@@ -7,7 +7,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let child of children" style="cursor: pointer;">
+                <tr *ngFor="let child of children" style="cursor: pointer;" (dblclick)="modalChildren.open()">
                     <td><input type="text" [value]="child.fieldName" (change)="changeChild(child, $event)"></td>
                 </tr>
             </tbody>
@@ -16,4 +16,5 @@
     <div>
         <button (click)="children.push('')">Adicionar item</button>
     </div>
+    <modal-children #modalChildren></modal-children>
 </div>

@@ -10,7 +10,7 @@ import { Modal } from 'src/app/ar-modal/components';
 export class ModalChildrenComponent implements OnInit {
 
   form: FormGroup;
-  @ViewChild('modalNewField') modalNewField:Modal
+  @ViewChild('modalChildren') modalChildren:Modal
   @Output('confirm') confirm: EventEmitter<any> = new EventEmitter();
   @Input('child') child;
 
@@ -54,13 +54,18 @@ export class ModalChildrenComponent implements OnInit {
   }
   
   open(): void{
-    this.modalNewField.open();
+    this.modalChildren.open();
+  }
+
+  save() {
+    this.child = this.form.value;
+    this.modalChildren.close();
   }
 
   onConfirm(){
     if(this.form.valid) {
       this.confirm.emit(this.form.value);
-      this.modalNewField.close()
+      this.modalChildren.close()
     }
       
   }

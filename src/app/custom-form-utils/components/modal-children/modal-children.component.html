@@ -1,6 +1,6 @@
-<modal #modalNewField>
+<modal #modalChildren>
     <modal-content>
-        <form [formGroup]="form" (submit)="onConfirm()" #ngForm="ngForm">
+        <form [formGroup]="form" (submit)="save()" #ngForm="ngForm">
             <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <div class="form-group">
@@ -80,10 +80,11 @@
                 </div>
 
             </div>
+            <button type="submit" class="btn btn-success">Sim</button>
+            <button type="button" class="btn btn-secondary" (click)="modalNewField.close()">Não</button>
         </form>
     </modal-content>
     <modal-footer>
-        <button type="button" class="btn btn-danger" (click)="onConfirm()">Sim</button>
-        <button type="button" class="btn btn-secondary" (click)="modalNewField.close()">Não</button>
+        
     </modal-footer>
 </modal>

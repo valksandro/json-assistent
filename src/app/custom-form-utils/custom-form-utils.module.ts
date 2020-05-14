@@ -9,7 +9,7 @@ import { ModalChildrenComponent } from './components/modal-children/modal-childr
 
 @NgModule({
   declarations: [ModalNewFieldComponent, ModalChildrenComponent],
-  exports: [ModalNewFieldComponent],
+  exports: [ModalNewFieldComponent, ModalChildrenComponent],
   imports: [
     CommonModule,
     ModalModule,

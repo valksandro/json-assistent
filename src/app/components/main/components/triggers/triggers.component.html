@@ -1,0 +1,19 @@
+<div style="max-height: 300px; margin-bottom: 50px">
+    <div class="table-responsive" style="max-height: 250px; margin-bottom: 5px">
+        <table class="table table-bordered table-striped table-sm mt-4 ">
+            <thead>
+                <tr>
+                    <th style="min-width: 120px;">label</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let trigger of triggers" style="cursor: pointer;">
+                    <td><input type="text" [value]="trigger" (change)="changeTrigger(trigger, $event)"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <button (click)="triggers.push('')">Adicionar item</button>
+    </div>
+</div>

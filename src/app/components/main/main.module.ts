@@ -15,6 +15,7 @@ import { CustomFormUtilsModule } from 'src/app/custom-form-utils/custom-form-uti
 import { MainComponent } from './components/main/main.component';
 import { DropdownItemsComponent } from './components/dropdown-items/dropdown-items.component';
 import { FieldPropertiesComponent } from './components/field-properties/field-properties.component';
+import { TriggersComponent } from './components/triggers/triggers.component';
 
 @NgModule({
   imports: [
@@ -34,6 +35,6 @@ import { FieldPropertiesComponent } from './components/field-properties/field-pr
   exports: [
     MainComponent
   ],
-  declarations: [MainComponent, DropdownItemsComponent, FieldPropertiesComponent]
+  declarations: [MainComponent, DropdownItemsComponent, FieldPropertiesComponent, TriggersComponent]
 })
 export class MainModule {}

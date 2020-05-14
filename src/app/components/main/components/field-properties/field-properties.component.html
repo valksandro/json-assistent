@@ -10,8 +10,10 @@
                 <tr *ngFor="let property of field | keyvalue: originalOrder" style="cursor: pointer;"
                 (click)="onSelectProperty(property)" [class.selected-row]="propertySelected && propertySelected == property">
                     <td>{{property.key}}</td>
-                    <td *ngIf="property.key != 'items'"><input type="text" [value]="property.value" (change)="changeValue(property, $event)" [attr.disabled]="property.key == 'type' ? true : null" ></td>
-                    <td *ngIf="property.key == 'items'">items</td>
+                    <td *ngIf="!isSpecial(property.key)">
+                        <input type="text" [value]="property.value" (change)="changeValue(property, $event)" [attr.disabled]="property.key == 'type' ? true : null" >
+                    </td>
+                    <td *ngIf="isSpecial(property.key)">{{property.key}}</td>
                 </tr>
             </tbody>
         </table>

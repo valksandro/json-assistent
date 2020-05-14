@@ -28,4 +28,9 @@ export class FieldPropertiesComponent implements OnInit {
     this.field[property.key] = event.target.value;
   }
 
+  isSpecial(key) {
+    const keys = ["items", "triggers", "children"];
+    return keys.includes(key);
+  }
+
 }

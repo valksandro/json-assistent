@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild, Output, EventEmitter, Input } from '@angular/core';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Modal } from 'src/app/ar-modal/components';
 
 @Component({
@@ -11,7 +11,6 @@ export class ModalChildrenComponent implements OnInit {
 
   form: FormGroup;
   @ViewChild('modalChildren') modalChildren:Modal
-  @Output('confirm') confirm: EventEmitter<any> = new EventEmitter();
   @Input('child') child;
 
   constructor(private formBuilder: FormBuilder,
@@ -60,13 +59,5 @@ export class ModalChildrenComponent implements OnInit {
   save() {
     this.child = this.form.value;
     this.modalChildren.close();
-  }
-
-  onConfirm(){
-    if(this.form.valid) {
-      this.confirm.emit(this.form.value);
-      this.modalChildren.close()
-    }
-      
   }
 }

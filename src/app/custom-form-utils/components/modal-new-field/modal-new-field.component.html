@@ -32,7 +32,8 @@
         </form>
     </modal-content>
     <modal-footer>
-        <button type="button" class="btn btn-danger" (click)="onConfirm()">Sim</button>
+        <button type="button" class="btn btn-danger" 
+        [attr.disabled]="form.get('name').value && form.get('type').value ? null : true" (click)="onConfirm()">Sim</button>
         <button type="button" class="btn btn-secondary" (click)="modalNewField.close()">Não</button>
     </modal-footer>
 </modal>

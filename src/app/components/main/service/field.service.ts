@@ -5,6 +5,8 @@ import { SlideField } from 'src/app/domain/SlideField';
 import { NumberField } from 'src/app/domain/NumberField';
 import { ImageField } from 'src/app/domain/ImageField';
 import { SignatureField } from 'src/app/domain/SignatureField';
+import { DropdownWithChildren } from 'src/app/domain/DropdownWithChildren';
+import { BooleanWithChildrenField } from 'src/app/domain/BooleanWithChildrenField';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +41,14 @@ export class FieldService {
       case "image":
         field = new ImageField();
         break;
+
+      case "dropdownwithchildren":
+        field = new DropdownWithChildren();
+        break;
+
+      case "boolwithchildren":
+      field = new BooleanWithChildrenField();
+      break;
 
       default:
         break;

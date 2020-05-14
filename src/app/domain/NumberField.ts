@@ -9,7 +9,7 @@ export class NumberField extends FieldBase {
 
     constructor() {
         super();
-        this.type = "slide";
+        this.type = "number";
         this.mask = null;
         this.editable = null;
         this.size = null;

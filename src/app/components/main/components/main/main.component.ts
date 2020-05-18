@@ -61,4 +61,10 @@ export class MainComponent implements OnInit {
   showOptions() {
     this.showOptionsField = true;
   }
+
+  removeField(field) {
+    let fields = this.file.fields;
+    const newFields = fields.filter(fld => fld != field);
+    this.file.fields = newFields;
+  }
 }

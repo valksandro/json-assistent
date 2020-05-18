@@ -1,4 +1,3 @@
-import { FieldPropertiesModule } from '../field-properties/field-properties.module';
 import { SearchJsonComponentModule } from '../search-json/search-json.module';
 
 import { NgModule } from '@angular/core';
@@ -29,7 +28,6 @@ import { ChildrenComponent } from './components/children/children.component';
     DropdownModule,
     HttpClientModule,
     SearchJsonComponentModule,
-    FieldPropertiesModule,
     PipesModule,
     CustomFormUtilsModule
   ],

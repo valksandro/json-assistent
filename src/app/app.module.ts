@@ -4,7 +4,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from "@angular/forms";
-import { FieldPropertiesModule } from './components/field-properties/field-properties.module';
 import { MainModule } from './components/main/main.module';
 import { SearchJsonComponentModule } from './components/search-json/search-json.module';
 import { CommonModule } from '@angular/common';
@@ -21,7 +20,6 @@ import { CommonModule } from '@angular/common';
     BrowserAnimationsModule,
     AppRoutingModule,
     SearchJsonComponentModule,
-    FieldPropertiesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

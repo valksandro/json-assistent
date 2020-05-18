@@ -25,12 +25,22 @@ export class FieldPropertiesComponent implements OnInit {
   }
 
   changeValue(property, event) {
-    this.field[property.key] = event.target.value;
+    if(this.getType(property) == "number")
+      this.field[property.key] = Number.parseInt(event.target.value);
+    else if(this.getType(property) == 'boolean')
+      this.field[property.key] = event.target.value == "true" ? true : false;
+    else
+    this.field[property.key] = event.target.value
   }
 
   isSpecial(key) {
     const keys = ["items", "triggers", "children"];
     return keys.includes(key);
+  }
+
+  getType(property) {
+    const result = typeof property.value;
+    return result;
   }
 
 }

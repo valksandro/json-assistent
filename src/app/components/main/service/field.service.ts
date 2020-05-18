@@ -7,6 +7,9 @@ import { ImageField } from 'src/app/domain/ImageField';
 import { SignatureField } from 'src/app/domain/SignatureField';
 import { DropdownWithChildren } from 'src/app/domain/DropdownWithChildren';
 import { BooleanWithChildrenField } from 'src/app/domain/BooleanWithChildrenField';
+import { DropdownField } from 'src/app/domain/DropdownField';
+import { CheckBoxField } from 'src/app/domain/CheckBoxField';
+import { ChecklListField } from 'src/app/domain/ChecklListField';
 
 @Injectable({
   providedIn: 'root'
@@ -47,10 +50,19 @@ export class FieldService {
         break;
 
       case "boolwithchildren":
-      field = new BooleanWithChildrenField();
-      break;
+        field = new BooleanWithChildrenField();
+        break;
 
-      default:
+      case "dropdown":
+        field = new DropdownField();
+        break;
+
+      case "checkbox":
+        field = new CheckBoxField();
+        break;
+
+      case "checklist":
+        field = new ChecklListField();
         break;
     }
 

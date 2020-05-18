@@ -2,7 +2,7 @@
     <app-search-json (onFileUpload)="onFileUpload($event)"> </app-search-json>
 
     <div class="row">
-        <div class="table-responsive" *ngIf="file" style="max-height: 300px; margin-bottom: 50px">
+        <div class="table-responsive" *ngIf="file">
             <table class="table table-bordered table-striped table-sm mt-4 ">
                 <thead>
                     <tr>
@@ -22,7 +22,6 @@
                             <a (click)="modalNewField.open()" class="action-link" data-toggle="tooltip" title="Inserir acima">
                                 <i class="fa fa-plus-circle fa-2x" ></i>
                             </a>
-
 
                             <a (click)="removeField(field)" class="action-link" data-toggle="tooltip" title="Excluir">
                                 <i class="fa fa-trash fa-2x" style="color: #f86c6b;"></i>

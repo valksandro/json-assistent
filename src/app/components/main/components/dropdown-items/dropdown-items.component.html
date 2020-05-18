@@ -1,13 +1,13 @@
-<div style="max-height: 300px; margin-bottom: 50px">
-    <div class="table-responsive" style="max-height: 250px; margin-bottom: 5px">
+<div class="dropdown-items">
+    <div class="table-responsive">
         <table class="table table-bordered table-striped table-sm mt-4 ">
             <thead>
                 <tr>
-                    <th style="min-width: 120px;">label</th>
+                    <th>label</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of items" style="cursor: pointer;">
+                <tr *ngFor="let item of items">
                     <td><input type="text" [value]="item" (change)="changeItem(item, $event)"></td>
                 </tr>
             </tbody>

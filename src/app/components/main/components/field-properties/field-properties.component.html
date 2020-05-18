@@ -11,16 +11,20 @@
                 (click)="onSelectProperty(property)" [class.selected-row]="propertySelected && propertySelected == property">
                     <td>{{property.key}}</td>
                     <td *ngIf="!isSpecial(property.key)">
-                        <input *ngIf="getType(property) == 'string'" type="text" [value]="property.value" (change)="changeValue(property, $event)" [attr.disabled]="property.key == 'type' ? true : null" >
-                        <input *ngIf="getType(property) == 'number'" type="number" [value]="property.value" (change)="changeValue(property, $event)" [attr.disabled]="property.key == 'type' ? true : null" >
+                        <input class="form-control" *ngIf="getType(property) == 'string'" type="text" [value]="property.value" (change)="changeValue(property, $event)" [attr.disabled]="property.key == 'type' ? true : null" >
+                        <input class="form-control" *ngIf="getType(property) == 'number'" type="number" [value]="property.value" (change)="changeValue(property, $event)" [attr.disabled]="property.key == 'type' ? true : null" >
                     
-                        <select *ngIf="getType(property) == 'boolean'" [value]="property.value"  (change)="changeValue(property, $event)">
+                        <select class="form-control" *ngIf="getType(property) == 'boolean'" [value]="property.value"  (change)="changeValue(property, $event)">
                             <option [value]="true">True</option>
                             <option [value]="false">False</option>
                         </select>
                     
                     </td>
-                    <td *ngIf="isSpecial(property.key)">{{property.key}}</td>
+                    <td *ngIf="isSpecial(property.key)">
+                        <span class="form-control">
+                            {{property.key}}
+                        </span>
+                    </td>
                 </tr>
             </tbody>
         </table>

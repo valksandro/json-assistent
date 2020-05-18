@@ -17,3 +17,7 @@
   background-color: #007ad9 !important;
   color: white;
 }
+
+.selected-row i {
+  color: white;
+}

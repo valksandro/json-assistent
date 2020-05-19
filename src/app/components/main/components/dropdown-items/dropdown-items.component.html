@@ -14,8 +14,8 @@
         </table>
     </div>
     <div>
-        <button (click)="items.push('')">Adicionar item</button>
-        <button (click)="modalTranslations.open()">Traduções</button>
+        <button class="btn btn-success" (click)="items.push('')">Adicionar item</button>
+        <button class="btn btn-secondary" (click)="modalTranslations.open()">Traduções</button>
         <modal-translations #modalTranslations [labels]="items"></modal-translations>
     </div>
 </div>

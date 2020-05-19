@@ -8,7 +8,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let child of children" style="cursor: pointer;" (click)="modalChildren.open()">
-                    <td>
+                    <td style="height: 40px;">
                         <a (click)="modalChildren.open()" class="action-link">
                             <i class="fa fa-pencil fa" style="margin-right: 5px;"></i>
                         </a>

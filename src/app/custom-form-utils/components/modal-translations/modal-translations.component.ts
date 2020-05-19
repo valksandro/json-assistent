@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Modal } from 'src/app/ar-modal/components';
+import { Translation } from 'src/app/components/main/model/Translation';
 
 @Component({
   selector: 'modal-translations',
@@ -10,55 +11,28 @@ import { Modal } from 'src/app/ar-modal/components';
 export class ModalTranslationsComponent implements OnInit {
 
   form: FormGroup;
-  @ViewChild('modalChildren') modalChildren:Modal
+  @ViewChild('modalTranslations') modalTranslations:Modal
   @Input('labels') labels;
+  public translations: Array<Translation> = []; 
 
-  constructor(private formBuilder: FormBuilder,
-    ) { 
-      this.form = this.formBuilder.group({
-        group: null,
-        orderResume: null,
-        groupResume: null,
-        fieldName: null,
-        label: null,
-        type: null,
-        display: null,
-        required: null,
-        mask: null,
-        editable: null,
-        size: null,
-        capitalization: null,
-      });
-    }
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
   }
 
   ngOnChanges() {
-    const child = this.labels;
-    this.form.patchValue({
-      group: child.group,
-      orderResume: child.orderResume,
-      groupResume: child.groupResume,
-      fieldName: child.fieldName,
-      label: child.label,
-      type: child.type,
-      display: child.display,
-      required: child.required,
-      mask: child.mask,
-      editable: child.editable,
-      size: child.size,
-      capitalization: child.capitalization,
-    })
+    this.labels.forEach(label => {
+      this.translations.push(new Translation(label));
+    });
   }
   
   open(): void{
-    this.modalChildren.open();
+    this.modalTranslations.open();
   }
 
   save() {
     this.labels = this.form.value;
-    this.modalChildren.close();
+    this.modalTranslations.close();
   }
 
   public setChild(child) {

@@ -10,7 +10,7 @@ import { ModalTranslationsComponent } from './components/modal-translations/moda
 
 @NgModule({
   declarations: [ModalNewFieldComponent, ModalChildrenComponent, ModalTranslationsComponent],
-  exports: [ModalNewFieldComponent, ModalChildrenComponent],
+  exports: [ModalNewFieldComponent, ModalChildrenComponent, ModalTranslationsComponent],
   imports: [
     CommonModule,
     ModalModule,

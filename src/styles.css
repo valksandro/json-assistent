@@ -21,3 +21,8 @@
 .selected-row i {
   color: white;
 }
+
+.modal-translations .modal-dialog {
+  width: 95%;
+  max-width: 95%;
+}

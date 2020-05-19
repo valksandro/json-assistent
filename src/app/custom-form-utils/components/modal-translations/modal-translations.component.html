@@ -1,88 +1,36 @@
-<modal #modalChildren>
+<modal #modalTranslations class="modal-translations">
     <modal-content>
-        <form [formGroup]="form" (submit)="save()" #ngForm="ngForm">
-            <div class="row">
-                <div class="col-sm-12 col-md-6">
+            <div class="row" *ngFor="let translation of translations">
+                <div class="col-sm-3">
                     <div class="form-group">
-                        <label class="form-col-form-label" for="group">group</label>
-                        <input type="text" formControlName="group" class="form-control" id="group">
+                        <label class="form-col-form-label" for="group">Label</label>
+                        <input type="text" class="form-control" [(ngModel)]="translation.label">
                     </div>
                 </div>
 
-                <div class="col-sm-12 col-md-6">
+                <div class="col-sm-3">
                     <div class="form-group">
-                        <label class="form-col-form-label" for="orderResume">orderResume</label>
-                        <input type="text" formControlName="orderResume" class="form-control" id="orderResume">
+                        <label class="form-col-form-label" for="group">PT</label>
+                        <input type="text" class="form-control" [(ngModel)]="translation.portuguese">
                     </div>
                 </div>
 
-                <div class="col-sm-12 col-md-6">
+                <div class="col-sm-3">
                     <div class="form-group">
-                        <label class="form-col-form-label" for="groupResume">groupResume</label>
-                        <input type="text" formControlName="groupResume" class="form-control" id="groupResume">
+                        <label class="form-col-form-label" for="group">EN</label>
+                        <input type="text" class="form-control" [(ngModel)]="translation.english">
                     </div>
                 </div>
 
-                <div class="col-sm-12 col-md-6">
+                <div class="col-sm-3">
                     <div class="form-group">
-                        <label class="form-col-form-label" for="fieldName">fieldName</label>
-                        <input type="text" formControlName="fieldName" class="form-control" id="fieldName">
-                    </div>
-                </div>
-
-                <div class="col-sm-12 col-md-6">
-                    <div class="form-group">
-                        <label class="form-col-form-label" for="label">label</label>
-                        <input type="text" formControlName="label" class="form-control" id="label">
-                    </div>
-                </div>
-
-                <div class="col-sm-12 col-md-6">
-                    <div class="form-group">
-                        <label class="form-col-form-label" for="type">type</label>
-                        <input type="text" formControlName="type" class="form-control" id="type">
-                    </div>
-                </div>
-
-                <div class="col-sm-12 col-md-6">
-                    <div class="form-group">
-                        <label class="form-col-form-label" for="display">display</label>
-                        <input type="text" formControlName="display" class="form-control" id="display">
-                    </div>
-                </div>
-
-                <div class="col-sm-12 col-md-6">
-                    <div class="form-group">
-                        <label class="form-col-form-label" for="required">required</label>
-                        <input type="text" formControlName="required" class="form-control" id="required">
-                    </div>
-                </div>
-
-                <div class="col-sm-12 col-md-6">
-                    <div class="form-group">
-                        <label class="form-col-form-label" for="editable">editable</label>
-                        <input type="text" formControlName="editable" class="form-control" id="editable">
-                    </div>
-                </div>
-
-                <div class="col-sm-12 col-md-6">
-                    <div class="form-group">
-                        <label class="form-col-form-label" for="size">size</label>
-                        <input type="text" formControlName="size" class="form-control" id="size">
-                    </div>
-                </div>
-
-                <div class="col-sm-12 col-md-6">
-                    <div class="form-group">
-                        <label class="form-col-form-label" for="capitalization">capitalization</label>
-                        <input type="text" formControlName="capitalization" class="form-control" id="capitalization">
+                        <label class="form-col-form-label" for="group">ES</label>
+                        <input type="text" class="form-control" [(ngModel)]="translation.spanish">
                     </div>
                 </div>
 
             </div>
-            <button type="submit" class="btn btn-success">Salvar</button>
-            <button type="button" class="btn btn-secondary" (click)="modalChildren.close()">Cancelar</button>
-        </form>
+            <button type="button" class="btn btn-secondary" (click)="modalTranslations.close()">Cancelar</button>
     </modal-content>
     <modal-footer>
         

@@ -15,7 +15,7 @@
     </div>
     <div>
         <button (click)="items.push('')">Adicionar item</button>
-        <button >Traduções</button>
-        <modal-translations [labels]="items"></modal-translations>
+        <button (click)="modalTranslations.open()">Traduções</button>
+        <modal-translations #modalTranslations [labels]="items"></modal-translations>
     </div>
 </div>

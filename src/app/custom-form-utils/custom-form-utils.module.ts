@@ -4,11 +4,12 @@ import { ModalNewFieldComponent } from './components/modal-new-field/modal-new-f
 import { ModalModule } from '../ar-modal/components';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ModalChildrenComponent } from './components/modal-children/modal-children.component';
+import { ModalTranslationsComponent } from './components/modal-translations/modal-translations.component';
 
 
 
 @NgModule({
-  declarations: [ModalNewFieldComponent, ModalChildrenComponent],
+  declarations: [ModalNewFieldComponent, ModalChildrenComponent, ModalTranslationsComponent],
   exports: [ModalNewFieldComponent, ModalChildrenComponent],
   imports: [
     CommonModule,

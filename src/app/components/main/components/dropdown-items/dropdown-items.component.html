@@ -8,7 +8,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let item of items">
-                    <td><input type="text" [value]="item" (change)="changeItem(item, $event)"></td>
+                    <td><input class="form-control" type="text" [value]="item" (change)="changeItem(item, $event)"></td>
                 </tr>
             </tbody>
         </table>

@@ -11,9 +11,9 @@ export class NumberField extends FieldBase {
         super();
         this.type = "number";
         this.mask = null;
-        this.editable = null;
+        this.editable = true;
         this.size = null;
-        this.capitalization = null;
+        this.capitalization = true;
         this.rightSymbol = null;        
     }
 }

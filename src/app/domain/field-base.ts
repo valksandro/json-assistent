@@ -15,7 +15,7 @@
               this.fieldName = null;
               this.label = null;
               this.type = null;
-              this.display = null;
-              this.required = null;
+              this.display = true;
+              this.required = true;
         }
  }

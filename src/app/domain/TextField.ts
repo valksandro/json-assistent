@@ -9,8 +9,8 @@ export class TextField extends FieldBase {
     constructor() {
         super();
         this.mask = null;
-        this.editable = null;
+        this.editable = true;
         this.size = null;
-        this.capitalization = null;
+        this.capitalization = true;
     }
 }

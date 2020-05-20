@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { KeyValue } from '@angular/common';
+import { TextField } from 'src/app/domain/TextField';
+import { FieldService } from '../../service/field.service';
 
 @Component({
   selector: 'field-properties',
@@ -14,7 +16,7 @@ export class FieldPropertiesComponent implements OnInit {
   originalOrder = (a: KeyValue<number,string>, b: KeyValue<number,string>): number => {
     return 0;
   }
-  constructor() { }
+  constructor(private fieldService: FieldService) { }
 
   ngOnInit(): void {
   }
@@ -39,8 +41,8 @@ export class FieldPropertiesComponent implements OnInit {
   }
 
   getType(property) {
-    const result = typeof property.value;
-    return result;
+    if(this.fieldService)
+      return this.fieldService.getPropertyType(property.key);
   }
 
 }

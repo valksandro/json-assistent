@@ -10,6 +10,7 @@ import { BooleanWithChildrenField } from 'src/app/domain/BooleanWithChildrenFiel
 import { DropdownField } from 'src/app/domain/DropdownField';
 import { CheckBoxField } from 'src/app/domain/CheckBoxField';
 import { ChecklListField } from 'src/app/domain/ChecklListField';
+import { group } from '@angular/animations';
 
 @Injectable({
   providedIn: 'root'
@@ -67,5 +68,42 @@ export class FieldService {
     }
 
     return field;
+  }
+
+  getPropertyType(property) {
+    let result = "string";
+    switch (property) {
+      case "group":
+      case "orderResume":
+      case "groupResume":
+      case "size":
+        result = "number";
+        break;
+
+      case "fieldName":
+      case "label":
+      case "type":
+      case "mask":
+      case "rightSymbol":
+      case "min":
+      case "max":
+      case "value":
+      case "division":
+        result = "string";
+        break;
+
+      case "display":
+      case "required":
+      case "isSingleSelection":
+      case "capitalization":
+      case "editable":
+        result = "boolean";
+        break;
+
+      default:
+        result = "object";
+        break;
+    }
+    return result;
   }
 }
